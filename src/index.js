@@ -168,10 +168,21 @@ function Square(props) {
     ];
     for (let i = 0; i < lines.length; i++) {
       const [a, b, c] = lines[i];
+      let winnerLine = [];
       if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
+        winnerLine.push(lines[i][0], lines[i][1], lines[i][2]);
+        let board = document.querySelectorAll('.square');
+        winnerLine.forEach(index => {
+          board[index].style.background = "rgb(179, 46, 46)";
+        })
+
         return squares[a];
       }
+      
     }
+    
+    
+    
     return null;
   }
   
