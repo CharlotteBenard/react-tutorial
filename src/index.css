@@ -43,10 +43,45 @@ body {
   .game {
     display: flex;
     flex-direction: row;
+    align-items: center;
   }
   
   .game-info {
     margin-left: 20px;
   }
 
- 
+  #sort {
+    height: 30px;
+    border-radius: 30px;
+    border: none;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: 20px;
+    background: rgba(61, 163, 141, 0.411);
+    outline: none;
+
+  }
+
+  #sort:hover {
+    background: rgba(53, 117, 103, 0.411);
+  }
+
+  button {
+    font-family: 'Raleway';
+  }
+
+  #status {
+    border-bottom: 0.1px solid rgb(104, 102, 102);
+    padding-bottom: 3px;
+  }
+
+  .moves {
+    border: none;
+    border-radius: 30px;
+    margin-bottom: 5px;
+    outline: none;
+  }
+
+  .moves:hover {
+    background: rgba(170, 168, 168, 0.575);
+  }
