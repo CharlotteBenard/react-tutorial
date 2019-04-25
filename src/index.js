@@ -87,11 +87,16 @@ function Square(props) {
         stepNumber: step,
         xIsNext: (step % 2) === 0,
       });
-      let buttons = document.querySelectorAll("button");
-      buttons.forEach(element => {
+      let moves = document.querySelectorAll(".moves");
+      let squares = document.querySelectorAll(".square");
+      moves.forEach(element => {
         if(element.style.fontWeight === "bold")
           element.style.fontWeight = "normal";
       });
+      squares.forEach(square => {
+        if(square.style.background !== "#fff")
+          square.style.background = "#fff";
+      })
       e.target.style.fontWeight = "bold";
     }
 
