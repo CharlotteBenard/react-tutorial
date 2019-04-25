@@ -120,7 +120,7 @@ function Square(props) {
         const desc = move ? 'Go to move #' + move : 'Go to game start';
         return (
           <li key={move} id={move}>
-            <button class="moves" onClick={(e) => this.jumpTo(move, e)}>{desc}</button>
+            <button className="moves" onClick={(e) => this.jumpTo(move, e)}>{desc}</button>
           </li>
         );
       });
@@ -129,6 +129,9 @@ function Square(props) {
       if(winner) {
         status = 'Winner: ' + winner;
       }
+
+      else if(this.state.history.length === 10)
+        status = 'The result is a draw';
 
       else {
         status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');

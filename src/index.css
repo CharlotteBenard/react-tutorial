@@ -43,7 +43,6 @@ body {
   .game {
     display: flex;
     flex-direction: row;
-    align-items: center;
   }
   
   .game-info {
@@ -84,4 +83,8 @@ body {
 
   .moves:hover {
     background: rgba(170, 168, 168, 0.575);
+  }
+
+  .game-board {
+    margin-top: 5px;
   }
