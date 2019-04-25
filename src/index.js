@@ -56,6 +56,7 @@ function Square(props) {
         }],
         stepNumber: 0,
         xIsNext: true,
+        ascending: true,
       };
     }
 
@@ -94,6 +95,22 @@ function Square(props) {
       e.target.style.fontWeight = "bold";
     }
 
+    filter() {
+      let moves = document.querySelector("ol");
+      if(this.state.ascending) {
+        moves.style.display = "flex";
+        moves.style.flexDirection = "column-reverse";
+      }
+      
+      else {
+        moves.style.flexDirection = "column";
+      }
+
+      this.setState({
+        ascending: !this.state.ascending,
+      });
+    }
+
     render() {
       const history = this.state.history;
       const current = history[this.state.stepNumber];
@@ -103,7 +120,7 @@ function Square(props) {
         const desc = move ? 'Go to move #' + move : 'Go to game start';
         return (
           <li key={move} id={move}>
-            <button onClick={(e) => this.jumpTo(move, e)}>{desc}</button>
+            <button class="moves" onClick={(e) => this.jumpTo(move, e)}>{desc}</button>
           </li>
         );
       });
@@ -126,9 +143,10 @@ function Square(props) {
             />
           </div>
           <div className="game-info">
-            <div>{status}</div>
+            <div id="status">{status}</div>
             <ol>{moves}</ol>
           </div>
+          <button id="sort" onClick={() => this.filter()}>Sort in {this.state.ascending ? "descending" : "ascending"} order</button>
         </div>
       );
     }
