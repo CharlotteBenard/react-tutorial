@@ -74,13 +74,24 @@ function Square(props) {
         stepNumber: history.length,
         xIsNext: !this.state.xIsNext,
       });
+      let buttons = document.querySelectorAll("button");
+      buttons.forEach(element => {
+        if(element.style.fontWeight === "bold")
+          element.style.fontWeight = "normal";
+      });
     }
 
-    jumpTo(step) {
+    jumpTo(step, e) {
       this.setState({
         stepNumber: step,
         xIsNext: (step % 2) === 0,
       });
+      let buttons = document.querySelectorAll("button");
+      buttons.forEach(element => {
+        if(element.style.fontWeight === "bold")
+          element.style.fontWeight = "normal";
+      });
+      e.target.style.fontWeight = "bold";
     }
 
     render() {
@@ -91,8 +102,8 @@ function Square(props) {
       const moves = history.map((step, move) => {
         const desc = move ? 'Go to move #' + move : 'Go to game start';
         return (
-          <li key={move}>
-            <button onClick={() => this.jumpTo(move)}>{desc}</button>
+          <li key={move} id={move}>
+            <button onClick={(e) => this.jumpTo(move, e)}>{desc}</button>
           </li>
         );
       });
